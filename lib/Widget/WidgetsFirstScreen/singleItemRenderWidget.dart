@@ -10,7 +10,8 @@ class SingleItemRender extends StatelessWidget {
       {required this.title, required this.color, required this.id});
   void onTapFunctionInk(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
-      SecondScreen.routeName,arguments:{"id":this.id, "title":this.title},
+      SecondScreen.routeName,
+      arguments:{"id":this.id, "title":this.title},
     );
   }
 
