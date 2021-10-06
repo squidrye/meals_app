@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/Widget/WidgetSecondScreen/SecondScreen.dart';
 import './Widget/WidgetsFirstScreen/foodCategoriesScreen.dart';
-
+import './Widget/WidgetThirdScreen/mealDetails.dart';
+import './Widget/tabsScreen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -21,28 +22,22 @@ class MyApp extends StatelessWidget {
         // home: CategoriesScreen(),
         routes: {
           '/': (context) {
-            return CategoriesScreen();
+            return TabScreen();
           },
           SecondScreen.routeName: (context) {
             return SecondScreen();
+          },
+          MealDetails.routeName:(context){
+            return MealDetails();
           }
-        });
+        },
+        onUnknownRoute:(RouteSettings settings){
+          return MaterialPageRoute(builder:(BuildContext context){
+            return CategoriesScreen();
+          });
+        }
+        );
   }
 }
 
-// class MyHomePage extends StatefulWidget {
-//   _MyHomePageState createState() {
-//     return _MyHomePageState();
-//   }
-// }
 
-// class _MyHomePageState extends State<MyHomePage> {
-//   Widget build(BuildContext buildContext) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Meal App"),
-//       ),
-//       body:CategoriesScreen(),
-//     );
-//   }
-// }
