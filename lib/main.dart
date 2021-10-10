@@ -3,6 +3,7 @@ import 'package:meals_app/Widget/WidgetSecondScreen/SecondScreen.dart';
 import './Widget/WidgetsFirstScreen/foodCategoriesScreen.dart';
 import './Widget/WidgetThirdScreen/mealDetails.dart';
 import './Widget/tabsScreen.dart';
+import './Widget/filtersScreen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
           },
           MealDetails.routeName:(context){
             return MealDetails();
+          },
+          FilterScreen.routeName:(context){
+            return FilterScreen();
           }
         },
         onUnknownRoute:(RouteSettings settings){
