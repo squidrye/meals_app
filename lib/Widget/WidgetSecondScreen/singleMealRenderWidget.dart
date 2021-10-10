@@ -9,6 +9,7 @@ class SingleMealRender extends StatelessWidget {
   final int duration;
   final Affordability affordability;
   final Complexity complexity;
+  final Function removeItem;
   SingleMealRender({
     required this.title,
     required this.imageUrl,
@@ -16,6 +17,7 @@ class SingleMealRender extends StatelessWidget {
     required this.affordability,
     required this.complexity,
     required this.duration,
+    required this.removeItem,
   });
   String complexityText() {
     if (complexity == Complexity.Simple) {
@@ -47,7 +49,12 @@ class SingleMealRender extends StatelessWidget {
     Navigator.of(ctx).pushNamed(
       MealDetails.routeName,
       arguments: this.id,
-    );
+    ).then((returnIdFromDetails){
+      print(returnIdFromDetails);
+      if(returnIdFromDetails!=null){
+        removeItem(this.id);
+      }
+    });
   }
 
   Widget build(BuildContext context) {
