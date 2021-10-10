@@ -23,7 +23,7 @@ class MainDrawer extends StatelessWidget {
           width: double.infinity,
           padding: EdgeInsets.all(20),
           alignment: Alignment.centerLeft,
-          child: Text('Under dev',
+          child: Text('Cooking up!',
               style: TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 30,
@@ -31,9 +31,14 @@ class MainDrawer extends StatelessWidget {
               )),
         ),
         SizedBox(height: 20),
-       buildListTile("Meals",Icons.restaurant,(){}),
+       buildListTile("Meals",Icons.restaurant,(){
+         Navigator.of(context).pushReplacementNamed("/",);
+       }),
        SizedBox(height: 20,),
-       buildListTile("Filters",Icons.settings,(){}),
+       buildListTile("Filters",Icons.settings,(){
+         Navigator.of(context).pushReplacementNamed("/FilterScreen");
+
+       }),
       ],
     ));
   }
