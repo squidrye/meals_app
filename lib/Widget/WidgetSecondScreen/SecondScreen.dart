@@ -5,6 +5,8 @@ import '../WidgetsFirstScreen/dummy_data.dart';
 
 class SecondScreen extends StatefulWidget{
   static const routeName = '/secondCategoryScreen';
+  List<Meal> availableMeals;
+  SecondScreen(this.availableMeals);
   SecondScreenState createState(){
     return SecondScreenState();
   }
@@ -20,7 +22,7 @@ final recieveArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
      title = recieveArgs['title'];
     final String? id = recieveArgs['id'];
-    filteredValue = DUMMY_MEALS.where((iterable) {
+    filteredValue = widget.availableMeals.where((iterable) {
       return iterable.categories.contains(id);
     }).toList();
   }
